@@ -5,7 +5,7 @@
       dense
       dark
     >
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
       <v-toolbar-title>My shop</v-toolbar-title>
 
@@ -43,6 +43,47 @@
           </v-list-item>
         </v-list>
       </v-menu>
+      
     </v-app-bar>
+    <v-navigation-drawer app v-model="drawer" temporary dark align-center  color="secondary">
+        <v-container class="mt-4 text-center">
+          <v-col>
+            <v-avatar >
+              <img
+                src="https://png.pngtree.com/element_our/png_detail/20181229/vector-shop-icon-png_302739.jpg"
+                alt=""
+              />
+            </v-avatar>
+          </v-col>
+          <v-col>
+            <p class="white--text nt-3 headline">Shopping App</p>
+          </v-col>
+          <v-col>
+              <v-btn color="primary" to="/">Home</v-btn>
+          </v-col>
+          <v-col>
+              <v-btn color="primary" to="/weatherCity">Electronics</v-btn>
+          </v-col>
+          
+           <v-col>
+              <v-btn color="primary" to="/argentina">Jewelery</v-btn>
+          </v-col>
+          <v-col>
+              <v-btn color="primary" to="/zipCode">Men's clothing</v-btn>
+          </v-col>
+           <v-col>
+              <v-btn color="primary" to="/zipCode">Women's clothing"</v-btn>
+          </v-col>
+        </v-container> 
+    </v-navigation-drawer>
   </div>
 </template>
+<script>
+export default {
+   data() {
+    return {
+      drawer: true,
+    };
+  },
+}
+</script>
