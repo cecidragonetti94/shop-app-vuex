@@ -82,7 +82,7 @@
             raised
             rounded
             color="primary"
-            to="/weatherCity"
+            to="/jewelery"
             >Jewelery</v-btn
           >
         </v-col>

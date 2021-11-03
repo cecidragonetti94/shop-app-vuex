@@ -2,7 +2,7 @@
 <v-app>
   <Nav/>   
   <v-main>
-    <router-v/>
+    <router-view/>
   </v-main>
   <Footer/>
 </v-app>
