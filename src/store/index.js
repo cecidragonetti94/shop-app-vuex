@@ -17,12 +17,25 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    async getProducts({commit}){
-      
-    await axios.get('https://fakestoreapi.com/products/category/jewelery')
+    async getCategories({commit}){
+      await axios.get('https://fakestoreapi.com/products/categories')
+      .then(response => {
+        commit('setCategories', response.data)
+      })
+    },
+
+    async getProducts({commit,state}){
+    const map = state.categories.map(cate => (cate.categories))
+    try {
+      await axios.get(`https://fakestoreapi.com/products/category/${map}`)
       .then(response => {
         commit('setProducts', response.data)
+        console.log("data",response.data)
       })
+    } catch (error) {
+      console.log(error)
+    } 
+    
     }
   },
   modules: {

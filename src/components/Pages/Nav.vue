@@ -74,8 +74,8 @@
           </v-btn>
         </template>
         <v-list color="primary">
-          <v-list-item v-for="n in categories" :key="n" @click="() => {}">
-            <v-list-item-title> {{ n }}</v-list-item-title>
+          <v-list-item  v-model="select" v-for="item in categories" :key="item"  @click="changeSelect(item)">
+            <v-list-item-title v-model="select"> {{ item }}</v-list-item-title>
           </v-list-item>
         </v-list>
          </v-menu>
@@ -134,12 +134,28 @@
   </div>
 </template>
 <script>
+import {mapState} from 'vuex'
 export default {
   data() {
     return {
       drawer: true,
-      categories:["electronics","jewelery", "men's clothing","women's clothing"]
+      select: "",
     };
   },
+  computed:{
+    ...mapState(["categories"]),
+  },
+  mounted() {
+    this.$store.dispatch("getCategories")
+    
+  },
+  methods:{
+    changeSelect(item){
+      this.select = item
+      this.$emit("click", this.select)
+      console.log("el item es",item)
+    }
+  }
+
 };
 </script>
