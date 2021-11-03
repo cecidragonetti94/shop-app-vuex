@@ -1,5 +1,6 @@
 .<template>
   <v-container>
+      <h1> {{item.category}} </h1>
     <v-row >
       <v-card 
        elevation="15"

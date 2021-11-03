@@ -1,16 +1,16 @@
 <template>
 <div class="container">
-   <h1 class="text-center">Jewelery</h1>
+   
    <br>
-<CardJewelery/>
+<Card/>
 
 </div>
 
 </template>
 <script>
-import CardJewelery from '../components/Shop/CardJewelery.vue'
+import Card from '../components/Shop/Card.vue'
 export default {
-    components: {CardJewelery}
+    components: {Card}
 }
 </script>
 <style>

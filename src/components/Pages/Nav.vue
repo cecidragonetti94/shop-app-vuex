@@ -73,14 +73,16 @@
             Categories
           </v-btn>
         </template>
-        <v-list color="primary">
+        <v-list color="success">
           <v-list-item  v-model="select" v-for="item in categories" :key="item"  @click="changeSelect(item)">
-            <v-list-item-title v-model="select"> {{ item }}</v-list-item-title>
+            <!-- <v-list-item-title > {{ item }}</v-list-item-title> -->
+            <v-btn block rounded 
+            raised color="secondary" text-center v-model="select" to="/"> {{item}} </v-btn>
           </v-list-item>
         </v-list>
          </v-menu>
          <!-- ************************************************** -->
-        <v-col>
+        <!-- <v-col>
           <v-btn
             block
             elevation="2"
@@ -128,7 +130,7 @@
             to="/weatherCity"
             >Women's clothing"</v-btn
           >
-        </v-col>
+        </v-col> -->
       </v-container>
     </v-navigation-drawer>
   </div>
@@ -153,7 +155,7 @@ export default {
     changeSelect(item){
       this.select = item
       this.$emit("click", this.select)
-      console.log("el item es",item)
+      console.log("la categoria es: ",item)
     }
   }
 

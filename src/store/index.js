@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -24,17 +25,13 @@ export default new Vuex.Store({
       })
     },
 
-    async getProducts({commit,state}){
-    const map = state.categories.map(cate => (cate.categories))
-    try {
-      await axios.get(`https://fakestoreapi.com/products/category/${map}`)
+    async getProducts({commit}){
+      await axios.get(`https://fakestoreapi.com/products/category/jewelery`)
       .then(response => {
         commit('setProducts', response.data)
         console.log("data",response.data)
       })
-    } catch (error) {
-      console.log(error)
-    } 
+    
     
     }
   },

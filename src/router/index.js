@@ -11,11 +11,17 @@ const routes = [
     component: Home
   },
   {
-    path: '/jewelery',
-    name: 'Jewelery',
+    path: '/categories',
+    name: 'Categories',
     
-    component: () => import(/* webpackChunkName: "about" */ '../views/Jewelery.vue')
-  }
+    component: () => import(/* webpackChunkName: "about" */ '../views/Categories.vue')
+  },
+  // {
+  //   path: '/categories/:id',
+  //   name: 'Article',
+  
+  //   component: () => import('../views/Article.vue')
+  // },
 ]
 
 const router = new VueRouter({
