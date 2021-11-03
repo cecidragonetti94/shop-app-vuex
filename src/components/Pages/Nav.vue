@@ -49,6 +49,7 @@
         <v-col>
           <p class="white--text nt-3 headline">Shopping App</p>
         </v-col>
+       
         <v-col>
           <v-btn
             block
@@ -61,6 +62,24 @@
             >Home</v-btn
           >
         </v-col>
+         <v-menu left bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn  block
+            elevation="2"
+            outlined
+            raised
+            rounded
+            color="primary" v-bind="attrs" v-on="on">
+            Categories
+          </v-btn>
+        </template>
+        <v-list color="primary">
+          <v-list-item v-for="n in categories" :key="n" @click="() => {}">
+            <v-list-item-title> {{ n }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+         </v-menu>
+         <!-- ************************************************** -->
         <v-col>
           <v-btn
             block
@@ -119,6 +138,7 @@ export default {
   data() {
     return {
       drawer: true,
+      categories:["electronics","jewelery", "men's clothing","women's clothing"]
     };
   },
 };
