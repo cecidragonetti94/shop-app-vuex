@@ -1,6 +1,6 @@
 .<template>
   <v-container>
-      <h1> {{item.category}} </h1>
+     
     <v-row >
       <v-card 
        elevation="15"
@@ -39,7 +39,9 @@
 <script>
 import { mapState } from "vuex";
 export default {
+ 
   computed: {
+    
     ...mapState(["products"]),
   },
   mounted() {

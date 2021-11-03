@@ -74,69 +74,19 @@
           </v-btn>
         </template>
         <v-list color="success">
-          <v-list-item  v-model="select" v-for="item in categories" :key="item"  @click="changeSelect(item)">
-            <!-- <v-list-item-title > {{ item }}</v-list-item-title> -->
+          <v-list-item  v-model="select" v-for="item in categories" :key="item"  @click="getProducts(item)">
+        
             <v-btn block rounded 
-            raised color="secondary" text-center v-model="select" to="/"> {{item}} </v-btn>
+            raised color="secondary" text-center v-model="select" to="/categories"> {{item}} </v-btn>
           </v-list-item>
         </v-list>
          </v-menu>
-         <!-- ************************************************** -->
-        <!-- <v-col>
-          <v-btn
-            block
-            elevation="2"
-            outlined
-            raised
-            rounded
-            color="primary"
-            to="/weatherCity"
-            >Electronics</v-btn
-          >
-        </v-col>
-
-        <v-col>
-          <v-btn
-            block
-            elevation="2"
-            outlined
-            raised
-            rounded
-            color="primary"
-            to="/jewelery"
-            >Jewelery</v-btn
-          >
-        </v-col>
-        <v-col>
-          <v-btn
-            block
-            elevation="2"
-            outlined
-            raised
-            rounded
-            color="primary"
-            to="/weatherCity"
-            >Men's clothing</v-btn
-          >
-        </v-col>
-        <v-col>
-          <v-btn
-            block
-            elevation="2"
-            outlined
-            raised
-            rounded
-            color="primary"
-            to="/weatherCity"
-            >Women's clothing"</v-btn
-          >
-        </v-col> -->
       </v-container>
     </v-navigation-drawer>
   </div>
 </template>
 <script>
-import {mapState} from 'vuex'
+import {mapActions, mapState} from 'vuex'
 export default {
   data() {
     return {
@@ -152,12 +102,11 @@ export default {
     
   },
   methods:{
-    changeSelect(item){
-      this.select = item
-      this.$emit("click", this.select)
-      console.log("la categoria es: ",item)
+  
+      ...mapActions(['getProducts']),
+     
     }
   }
 
-};
+
 </script>
