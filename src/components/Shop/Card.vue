@@ -1,6 +1,7 @@
 .<template>
   <v-container>
-  <v-row>
+    <h1>{{carrito}} </h1>
+    <v-row>
       <v-card
         elevation="15"
         class="mx-auto text-center mb-5"
@@ -25,19 +26,18 @@
           <v-card-subtitle>US${{ item.price }} </v-card-subtitle>
           <v-card-subtitle>{{ item.description }} </v-card-subtitle>
           <v-card-actions>
-            <v-row justify="center">
+            <!-- <v-row justify="center">
               <v-dialog v-model="dialog" persistent max-width="310">
-                <template v-slot:activator="{ on, attrs }">
+                <template v-slot:activator="{ on, attrs }"> -->
                   <v-btn
                     color="deep-purple lighten-2"
                     text
                     dark
-                    v-bind="attrs"
-                    v-on="on"
+                    @click="agregarCarrito(products)"
                   >
                     Buy
                   </v-btn>
-                </template>
+                <!-- </template>
                 <v-card>
                   <v-card-title class="text-h5">
                     Agregar al carrito?
@@ -63,7 +63,7 @@
                   </v-card-actions>
                 </v-card>
               </v-dialog>
-            </v-row>
+            </v-row> -->
           </v-card-actions>
         </v-col>
       </v-card>
@@ -72,20 +72,28 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 export default {
   data() {
     return {
       dialog: false,
-      items: ['Foo', 'Bar', 'Fizz', 'Buzz'],
+      
     };
   },
   computed: {
     ...mapState(["products"]),
+     ...mapState(["carrito"]),
   },
   mounted() {
     this.$store.dispatch("getProducts");
+    this.$store.dispatch("agregarCarrito",this.products);
   },
+    methods:{
+      
+      ...mapActions(['agregarCarrito']),
+       
+     
+    }
 };
 </script>
 

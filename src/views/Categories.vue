@@ -1,10 +1,7 @@
 <template>
 <div class="container">
 
-<v-select :items="items"
-        label="Precio máximo">
 
-</v-select>
     <card/>
 
 
@@ -17,10 +14,7 @@ import Card from '../components/Shop/Card.vue'
 
 export default {
   components: { Card },
-  data: () => ({
-      items: ['Foo', 'Bar', 'Fizz', 'Buzz'],
  
-})
 }
 </script>
 <style>
