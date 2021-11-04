@@ -73,10 +73,10 @@
             Categories
           </v-btn>
         </template>
-        <v-list color="success">
+        <v-list color="primary">
           <v-list-item  v-model="select" v-for="item in categories" :key="item"  @click="getProducts(item)">
         
-            <v-btn block rounded 
+            <v-btn block rounded outlined
             raised color="secondary" text-center v-model="select" to="/categories"> {{item}} </v-btn>
           </v-list-item>
         </v-list>
@@ -102,8 +102,9 @@ export default {
     
   },
   methods:{
-  
+      
       ...mapActions(['getProducts']),
+       
      
     }
   }

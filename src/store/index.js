@@ -8,7 +8,7 @@ export default new Vuex.Store({
   state: {
     products: [],
     categories: [],
-    cate: null,
+   
   },
   mutations: {
     setProducts(state,payload){
@@ -17,9 +17,7 @@ export default new Vuex.Store({
     setCategories(state,payload){
       state.categories=payload
     },
-    setClick(state,payload){
-      state.cate = payload
-    }
+  
   },
   actions: {
     async getCategories({commit}){
@@ -41,16 +39,9 @@ export default new Vuex.Store({
     
     
     },
-    clickSelect({commit},item){
-      commit('setClick', item)
-      console.log("el item", item)
-    }
+    
   },
-  // getters:{
-  //   setCategoriesGetter(param){
-  //     this.cate = param
-  //   }
-  // },
+
   modules: {
   }
 })

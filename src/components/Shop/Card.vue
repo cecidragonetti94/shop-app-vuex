@@ -1,9 +1,8 @@
 .<template>
   <v-container>
-     
-    <v-row >
-      <v-card 
-       elevation="15"
+    <v-row>
+      <v-card
+        elevation="15"
         class="mx-auto text-center mb-5"
         max-width="400"
         v-for="item in products"
@@ -32,26 +31,41 @@
           </v-card-actions>
         </v-col>
       </v-card>
+       
     </v-row>
+    <!-- <div class="text-center">
+    <v-pagination
+      v-model="pagination.page"
+      :length="pagination.total /4"
+      :total-visible="pagination.visible"
+      circle
+      @click.prevent="page -= 1"
+    ></v-pagination>
+  </div> -->
   </v-container>
 </template>
 
 <script>
 import { mapState } from "vuex";
 export default {
- 
+  // data() {
+  //   return {
+  //     results: 2,
+  //     pagination: {
+  //       page:1,
+  //       total: 4,
+  //       visible: 2
+  //     }
+  //   };
+  // },
   computed: {
-    
     ...mapState(["products"]),
   },
   mounted() {
     this.$store.dispatch("getProducts");
-   
   },
 };
 </script>
 
 <style>
-
-
 </style>
