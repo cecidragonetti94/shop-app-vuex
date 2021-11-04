@@ -11,12 +11,7 @@ import Card from '../components/Shop/Card.vue'
 import { mapState } from "vuex";
 export default {
   components: { Card },
-  computed: {
-    ...mapState(["products"]),
-  },
-  mounted() {
-    this.$store.dispatch("getProducts");
-  },
+  
 }
 </script>
 <style>

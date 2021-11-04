@@ -17,6 +17,7 @@ export default new Vuex.Store({
     setCategories(state,payload){
       state.categories=payload
     },
+   
   
   },
   actions: {
@@ -29,7 +30,7 @@ export default new Vuex.Store({
     },
 
     async getProducts({commit},item){
-      commit('setClick', item)
+     
       console.log("el item", item)
       await axios.get(`https://fakestoreapi.com/products/category/${item}`)
       .then(response => {

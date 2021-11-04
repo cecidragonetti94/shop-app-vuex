@@ -3,7 +3,14 @@
     <v-app-bar color="secondary" dense dark>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <v-toolbar-title>My shop</v-toolbar-title>
+      <v-toolbar-title>Shopping App
+        <v-avatar>
+            <img
+              src="https://png.pngtree.com/element_our/png_detail/20181229/vector-shop-icon-png_302739.jpg"
+              alt=""
+            />
+          </v-avatar>
+      </v-toolbar-title>
 
       <v-spacer></v-spacer>
 
