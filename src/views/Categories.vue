@@ -1,17 +1,26 @@
 <template>
 <div class="container">
- 
-<card/>
+
+<v-select :items="items"
+        label="Precio máximo">
+
+</v-select>
+    <card/>
+
+
 
 </div>
 
 </template>
 <script>
 import Card from '../components/Shop/Card.vue'
-import { mapState } from "vuex";
+
 export default {
   components: { Card },
-  
+  data: () => ({
+      items: ['Foo', 'Bar', 'Fizz', 'Buzz'],
+ 
+})
 }
 </script>
 <style>

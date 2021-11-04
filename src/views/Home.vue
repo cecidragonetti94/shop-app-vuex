@@ -1,9 +1,9 @@
 
    <template>
-  <div>
+  <div cols="12">
     <h1 class="text-center mb-5">Shopping App</h1>
 
-    <v-card flat tile> 
+    <v-card flat tile cols=12> 
       <v-window v-model="onboarding" reverse>
         <v-window-item v-for="item in categories" :key="item">
           <v-card color="grey" height="200">
