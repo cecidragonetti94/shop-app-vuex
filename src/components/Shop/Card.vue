@@ -1,6 +1,9 @@
 .<template>
   <v-container>
-    <h1>{{carrito}} </h1>
+    <pre>
+ {{ carrito }} 
+    </pre>
+
     <v-row>
       <v-card
         elevation="15"
@@ -29,15 +32,15 @@
             <!-- <v-row justify="center">
               <v-dialog v-model="dialog" persistent max-width="310">
                 <template v-slot:activator="{ on, attrs }"> -->
-                  <v-btn
-                    color="deep-purple lighten-2"
-                    text
-                    dark
-                    @click="agregarCarrito(products)"
-                  >
-                    Buy
-                  </v-btn>
-                <!-- </template>
+            <v-btn
+              color="deep-purple lighten-2"
+              text
+              dark
+              @click="agregarCarrito(item)"
+            >
+              Buy
+            </v-btn>
+            <!-- </template>
                 <v-card>
                   <v-card-title class="text-h5">
                     Agregar al carrito?
@@ -77,23 +80,21 @@ export default {
   data() {
     return {
       dialog: false,
-      
     };
   },
   computed: {
     ...mapState(["products"]),
-     ...mapState(["carrito"]),
+    ...mapState(["carrito"]),
   },
   mounted() {
     this.$store.dispatch("getProducts");
-    this.$store.dispatch("agregarCarrito",this.products);
+    this.$store.dispatch("agregarCarrito", this.products);
+  
   },
-    methods:{
-      
-      ...mapActions(['agregarCarrito']),
-       
-     
-    }
+  methods: {
+    ...mapActions(["agregarCarrito"]),
+    
+  },
 };
 </script>
 
