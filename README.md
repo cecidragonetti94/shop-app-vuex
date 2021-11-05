@@ -1,6 +1,6 @@
 # shopapp
 ## hosting
-shop-app-vuex.netlify.app
+https://shop-app-vuex.netlify.app
 
 ## Sobre el proyecto
 Este proyecto es una simulacion de un market. 
