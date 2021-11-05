@@ -52,7 +52,7 @@ export default {
   data() {
     return {
       dialog: false,
-      item: {}
+      
     };
   },
   computed: {
@@ -61,7 +61,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch("getProducts");
-    this.$store.dispatch("agregarCarrito", this.item);
+    this.$store.dispatch("agregarCarrito");
   
   },
   methods: {

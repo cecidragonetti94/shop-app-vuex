@@ -11,7 +11,7 @@
                 <th scope="col" class="text-center">Precio</th>
                 <th scope="col" class="text-center">Total</th>
                 <th scope="col" class="text-center">Acción</th>
-                <th class="text-center"> <v-icon> fa-trash</v-icon> </th>
+               
             </tr>
             </thead>
             <tbody id="items">
@@ -21,23 +21,29 @@
             </tbody>
 
      </v-simple-table>
-     <h3>Total a pagar US${{totalPrecio}} </h3>
+     <h3>Total a pagar US${{totalCantidad}} </h3>
+     <br>
+    <v-btn icon @click="setVaciar()" color="primary" > vaciar carrito
+ <v-icon> fa-trash</v-icon> 
+    </v-btn>
+    
     </div>
 </template>
 <script>
-import { mapState,getters } from "vuex";
+import { mapState,mapGetters,mapMutations } from "vuex";
 import Item from './Item.vue';
 export default {
     components:{Item},
    computed:{
          ...mapState(["carrito"]),
-        totalPrecio(){
-         return this.$store.getters.totalPrecio
-     }
+        ...mapGetters(["totalCantidad"])
+         
     },
+  methods: {
+      ...mapMutations(["setVaciar"])
    
     }
     
-
+}
 
 </script>

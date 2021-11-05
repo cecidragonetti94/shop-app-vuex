@@ -9,6 +9,7 @@ export default new Vuex.Store({
     products: [],
     categories: [],
     carrito:{},
+  
    
   },
   mutations: {
@@ -72,7 +73,8 @@ export default new Vuex.Store({
     },
     totalPrecio(state){
       return Object.values(state.carrito).reduce((acc, {cantidad,price})=> acc + cantidad * price,0)
-    }
+    },
+    
   },
 
   modules: {
