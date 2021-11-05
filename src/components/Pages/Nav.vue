@@ -14,7 +14,7 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn icon>
+      <v-btn icon to="/favoritos"> 
         <v-icon>fa-heart</v-icon>
       </v-btn>
 

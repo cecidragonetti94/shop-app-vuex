@@ -6,8 +6,8 @@
     <td>US${{ item.price }}</td>
     <td>US${{ item.price * item.cantidad }}</td>
     <td>
-      <v-btn color="success" @click="aumentar(item.id)"> + </v-btn>
-      <v-btn color="error" @click="disminuir(item.id)"> - </v-btn>
+      <!-- <v-btn color="success" @click="aumentar(item.id)"> + </v-btn>
+      <v-btn color="error" @click="disminuir(item.id)"> - </v-btn> -->
     </td>
 
     <td>
@@ -20,15 +20,15 @@
 
 <script>
 
-
+// import {mapMutations} from 'vuex'
 export default {
   props: ["item"],
 
-  methods: {
+//   methods: {
  
-//     ...mapActions(["aumentar", id]),
-//     ...mapActions(["disminuir", id]),
-  },
+//     ...mapMutations(["aumentar"]),
+//      ...mapMutations(["disminuir"]),
+//   },
 };
 </script>
 

@@ -22,6 +22,12 @@ const routes = [
   
   component: () => import('../views/Compras.vue')
    },
+   {
+    path: '/favoritos',
+    name: 'Favoritos',
+  
+  component: () => import('../views/Favoritos.vue')
+   },
 ]
 
 const router = new VueRouter({

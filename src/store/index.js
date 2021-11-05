@@ -21,19 +21,21 @@ export default new Vuex.Store({
     },
     setCarrito(state,payload){
        state.carrito[payload.id] = {...payload}
-      console.log("carrito",state.carrito)
+      // console.log("carrito",state.carrito)
     },
     setVaciar(state){
       state.carrito = {}
     },
     aumentar(state,payload){
-      state.carrito[payload].cantidad = state.carrito[payload].cantidad +1
+      state.carrito[payload].cantidad = state.carrito[payload].cantidad + 1
+      // console.log("aumentar", state.carrito[payload].cantidad)
     },
     disminuir(state,payload){
       state.carrito[payload].cantidad = state.carrito[payload].cantidad -1
       if(state.carrito[payload].cantidad ===0){
         delete state.carrito[payload]
       }
+      // console.log("disminuir", state.carrito[payload].cantidad)
     }
    
   
@@ -43,7 +45,7 @@ export default new Vuex.Store({
       await axios.get('https://fakestoreapi.com/products/categories')
       .then(response => {
         commit('setCategories', response.data)
-        console.log("categtories",response.data)
+        // console.log("categtories",response.data)
       })
     },
 
@@ -53,7 +55,7 @@ export default new Vuex.Store({
       await axios.get(`https://fakestoreapi.com/products/category/${item}`)
       .then(response => {
         commit('setProducts', response.data)
-        console.log("data",response.data)
+        // console.log("data",response.data)
       })
     
     },
@@ -62,7 +64,7 @@ export default new Vuex.Store({
       ? item.cantidad = state.carrito[item.id].cantidad + 1
       : item.cantidad = 1
       commit('setCarrito', item)
-      console.log("item", item)
+      // console.log("item", item)
     }
     
   },

@@ -10,18 +10,19 @@
                 <th scope="col" class="text-center">Cantidad</th>
                 <th scope="col" class="text-center">Precio</th>
                 <th scope="col" class="text-center">Total</th>
-                <th scope="col" class="text-center">Acción</th>
+                <!-- <th scope="col" class="text-center">Acción</th> -->
                
             </tr>
             </thead>
             <tbody id="items">
-              <!-- {{carrito}} -->
+              
               <Item v-for="item in carrito" :key="item.id"
               :item="item"/>
             </tbody>
 
      </v-simple-table>
-     <h3>Total a pagar US${{totalCantidad}} </h3>
+     <h3>Cantidad de productos :{{totalCantidad}} </h3>
+     <h3>Total a pagar US${{totalPrecio}} </h3>
      <br>
     <v-btn icon @click="setVaciar()" color="primary" > vaciar carrito
  <v-icon> fa-trash</v-icon> 
@@ -36,7 +37,8 @@ export default {
     components:{Item},
    computed:{
          ...mapState(["carrito"]),
-        ...mapGetters(["totalCantidad"])
+        ...mapGetters(["totalCantidad"]),
+         ...mapGetters(["totalPrecio"])
          
     },
   methods: {
