@@ -36,7 +36,7 @@
               dark
               @click="agregarCarrito(item)"
             >
-              Buy
+              Comprar
             </v-btn>
            
           </v-card-actions>
