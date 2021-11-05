@@ -6,7 +6,7 @@
             <thead >
             <tr>
                 <th scope="col" class="text-center">#id</th>
-                <th scope="col" class="text-center">Item</th>
+                <th scope="col" class="text-center">Producto</th>
                 <th scope="col" class="text-center">Cantidad</th>
                 <th scope="col" class="text-center">Precio</th>
                 <th scope="col" class="text-center">Total</th>
@@ -21,26 +21,23 @@
             </tbody>
 
      </v-simple-table>
+     <h3>Total a pagar US${{totalPrecio}} </h3>
     </div>
 </template>
 <script>
-import { mapState } from "vuex";
+import { mapState,getters } from "vuex";
 import Item from './Item.vue';
 export default {
     components:{Item},
    computed:{
          ...mapState(["carrito"]),
+        totalPrecio(){
+         return this.$store.getters.totalPrecio
+     }
     },
+   
     }
     
-//      mounted() {
-    
-//     this.$store.dispatch("agregarCarrito", this.item);
-  
-//   },
-//    methods: {
-//     ...mapActions(["agregarCarrito"]),
-    
-//   },
+
 
 </script>

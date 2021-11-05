@@ -68,9 +68,10 @@ export default new Vuex.Store({
   getters:{
     totalCantidad(state){
       return Object.values(state.carrito).reduce((acc,{cantidad})=> acc + cantidad,0)
+      //suma de todos los item
     },
     totalPrecio(state){
-      return Object.values(state.carrito).reduce((acc, {cantidad,precio})=> acc + cantidad * precio,0)
+      return Object.values(state.carrito).reduce((acc, {cantidad,price})=> acc + cantidad * price,0)
     }
   },
 

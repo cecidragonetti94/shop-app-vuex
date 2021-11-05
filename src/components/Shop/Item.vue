@@ -1,4 +1,5 @@
 .<template>
+
   <tr class="text-center">
     <th scope="row">{{item.id}}</th>
     <td>{{item.title}}</td>
@@ -6,11 +7,11 @@
     <td>US${{item.price}}</td>
      <td>US${{item.price * item.cantidad}}</td>
     <td>
-        <v-btn color="success" @click="aumentar(item.id)">
+        <v-btn color="success" @click="aumentar(item.id)" >
             +
         </v-btn>
-        <v-btn color="error" @click="disminuir(item.id)">
-            -
+        <v-btn  color="error" @click="disminuir(item.id)" >
+           -
         </v-btn>
     </td>
    
@@ -20,8 +21,10 @@
             vaciar todo
         </v-btn>
     </td>
+    
   </tr>
   
+     
     
 </template>
 
@@ -33,11 +36,7 @@ props:['item'],
 //       ...mapActions(['aumentar', id]),
 //       ...mapActions(['disminuir',id])
 //   }
- getters:{
-     totalCantidad(state){
-         return state.carrito.totalCantidad
-     }
- }
+
 }
 </script>
 
