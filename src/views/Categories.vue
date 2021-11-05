@@ -1,10 +1,6 @@
 <template>
 <div class="container">
-
-
     <card/>
-
-
 
 </div>
 
@@ -13,7 +9,7 @@
 import Card from '../components/Shop/Card.vue'
 
 export default {
-  components: { Card },
+  components: { Card, },
  
 }
 </script>

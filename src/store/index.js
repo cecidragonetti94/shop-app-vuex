@@ -44,11 +44,11 @@ export default new Vuex.Store({
       })
     
     },
-    agregarCarrito({commit,state}, products){
-      state.carrito.hasOwnProperty(products.id)// si hay un indice no vacio en carrito
-      ? products.cantidad = state.carrito[products.id].cantidad + 1
-      : products.cantidad = 1
-      commit('setCarrito', products)
+    agregarCarrito({commit,state}, item){
+      state.carrito.hasOwnProperty(item.id)// si hay un indice no vacio en carrito
+      ? item.cantidad = state.carrito[item.id].cantidad + 1 : item.cantidad = 1
+      console.log("itemmmm", item)
+      commit('setCarrito', item)
   
     }
     

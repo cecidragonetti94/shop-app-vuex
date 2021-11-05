@@ -18,8 +18,8 @@
         <v-icon>fa-heart</v-icon>
       </v-btn>
 
-      <v-btn icon>
-        <v-icon>fa-search</v-icon>
+      <v-btn icon to="/compras">
+        <v-icon>fa-cart-plus</v-icon>
       </v-btn>
 
       <v-menu left bottom>
