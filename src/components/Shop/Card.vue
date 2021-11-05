@@ -1,7 +1,7 @@
 .<template>
   <v-container>
-    <!-- <pre>
- {{ carrito }} 
+     <!-- <pre>
+ {{ this.item }} 
     </pre> -->
 
     <v-row>

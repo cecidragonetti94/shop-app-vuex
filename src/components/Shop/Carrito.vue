@@ -13,8 +13,32 @@
             </tr>
             </thead>
             <tbody id="items">
-              
+              <!-- {{carrito}} -->
+              <Item v-for="item in carrito" :key="item.id"
+              :item="item"/>
             </tbody>
+            
      </v-simple-table>
     </div>
 </template>
+<script>
+import { mapState } from "vuex";
+import Item from './Item.vue';
+export default {
+    components:{Item},
+   computed:{
+         ...mapState(["carrito"]),
+    },
+    }
+    
+//      mounted() {
+    
+//     this.$store.dispatch("agregarCarrito", this.item);
+  
+//   },
+//    methods: {
+//     ...mapActions(["agregarCarrito"]),
+    
+//   },
+
+</script>

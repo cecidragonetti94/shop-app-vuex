@@ -21,6 +21,18 @@ export default new Vuex.Store({
     setCarrito(state,payload){
        state.carrito[payload.id] = {...payload}
       console.log("carrito",state.carrito)
+    },
+    setVaciar(state){
+      state.carrito = {}
+    },
+    aumentar(state,payload){
+      state.carrito[payload].cantidad = state.carrito[payload].cantidad +1
+    },
+    disminuir(state,payload){
+      state.carrito[payload].cantidad = state.carrito[payload].cantidad -1
+      if(state.carrito[payload].cantidad ===0){
+        delete state.carrito[payload]
+      }
     }
    
   
@@ -46,12 +58,20 @@ export default new Vuex.Store({
     },
     agregarCarrito({commit,state}, item){
       state.carrito.hasOwnProperty(item.id)// si hay un indice no vacio en carrito
-      ? item.cantidad = state.carrito[item.id].cantidad + 1 : item.cantidad = 1
-      console.log("itemmmm", item)
+      ? item.cantidad = state.carrito[item.id].cantidad + 1
+      : item.cantidad = 1
       commit('setCarrito', item)
-  
+      console.log("item", item)
     }
     
+  },
+  getters:{
+    totalCantidad(state){
+      return Object.values(state.carrito).reduce((acc,{cantidad})=> acc + cantidad,0)
+    },
+    totalPrecio(state){
+      return Object.values(state.carrito).reduce((acc, {cantidad,precio})=> acc + cantidad * precio,0)
+    }
   },
 
   modules: {
