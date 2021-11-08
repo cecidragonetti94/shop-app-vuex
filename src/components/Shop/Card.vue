@@ -1,6 +1,6 @@
 .<template>
   <v-container>
-     <!-- <pre>
+    <!-- <pre>
  {{ this.item }} 
     </pre> -->
 
@@ -29,16 +29,19 @@
           <v-card-subtitle>US${{ item.price }} </v-card-subtitle>
           <v-card-subtitle>{{ item.description }} </v-card-subtitle>
           <v-card-actions>
-       
-            <v-btn
-              color="deep-purple lighten-2"
-              text
-              dark
-              @click="agregarCarrito(item)"
-            >
-              Comprar
-            </v-btn>
-           
+            <v-container>
+              <v-btn
+                color="deep-purple lighten-2"
+                text
+                dark
+                @click="agregarCarrito(item)"
+              >
+                Comprar
+              </v-btn>
+              <v-btn icon to="/favoritos" >
+                <v-icon color="deep-purple lighten-2">fa-heart</v-icon>
+              </v-btn>
+            </v-container>
           </v-card-actions>
         </v-col>
       </v-card>
@@ -52,7 +55,6 @@ export default {
   data() {
     return {
       dialog: false,
-      
     };
   },
   computed: {
@@ -62,11 +64,9 @@ export default {
   mounted() {
     this.$store.dispatch("getProducts");
     this.$store.dispatch("agregarCarrito");
-  
   },
   methods: {
     ...mapActions(["agregarCarrito"]),
-    
   },
 };
 </script>
