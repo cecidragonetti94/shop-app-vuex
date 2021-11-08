@@ -15,5 +15,7 @@ export default {
 </script>
 
 <style>
-
+.v-progress-circular {
+  margin: 30rem;
+}
 </style>
