@@ -59,6 +59,7 @@ export default new Vuex.Store({
       console.log("el item", item)
       await axios.get(`https://fakestoreapi.com/products/category/${item}`)
       .then(response => {
+      
         commit('setProducts', response.data)
         // console.log("data",response.data)
       })

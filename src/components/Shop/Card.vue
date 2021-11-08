@@ -5,6 +5,7 @@
     </pre> -->
 
     <v-row>
+        <Loading v-if="loading"/>
       <v-card
         elevation="15"
         class="mx-auto text-center mb-5"
@@ -51,19 +52,29 @@
 
 <script>
 import { mapState, mapActions } from "vuex";
+import Loading from '../Pages/Loading.vue';
 export default {
+  components: { Loading },
   data() {
     return {
       dialog: false,
+      loading: false
+     
     };
   },
+   
   computed: {
     ...mapState(["products"]),
     ...mapState(["carrito"]),
   },
   mounted() {
-    this.$store.dispatch("getProducts");
+    this.loading = true
+    this.$store.dispatch("getProducts").then(()=>{
+    this.loading = false
+    });
+    
     this.$store.dispatch("agregarCarrito");
+  
   },
   methods: {
     ...mapActions(["agregarCarrito"]),
@@ -72,4 +83,8 @@ export default {
 </script>
 
 <style>
+.v-progress-circular {
+ margin:30rem;
+  
+}
 </style>
