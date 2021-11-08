@@ -29,25 +29,7 @@
           </v-btn>
         </template>
 
-        <v-list dense>
-     
-      <v-list-item-group
-        v-model="selectedItem"
-        color="primary"
-      >
-        <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-        >
-          <v-list-item-icon>
-            <v-icon v-text="item.icon"></v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title v-text="item.text"></v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list-item-group>
-    </v-list>
+      <ItemUser/>
       </v-menu>
     </v-app-bar>
     <v-navigation-drawer
@@ -107,34 +89,25 @@
   </div>
 </template>
 <script>
-import {mapActions, mapState} from 'vuex'
+import { mapActions, mapState } from "vuex";
+import ItemUser from './ItemUser.vue';
 export default {
+  components: { ItemUser },
   data() {
     return {
       drawer: true,
       select: "",
-         items: [
-        { text: 'Ingresar', icon: 'fa-sign-in-alt' },
-        { text: 'Registrarse', icon: 'fa-user-edit' },
-        { text: 'Cerrar Sesión', icon: 'fa-sign-out-alt' },
-      ],
-      selectedItem: 1,
+     
     };
   },
-  computed:{
+  computed: {
     ...mapState(["categories"]),
   },
   mounted() {
-    this.$store.dispatch("getCategories")
-    
+    this.$store.dispatch("getCategories");
   },
-  methods:{
-      
-      ...mapActions(['getProducts']),
-       
-     
-    }
-  }
-
-
+  methods: {
+    ...mapActions(["getProducts"]),
+  },
+};
 </script>

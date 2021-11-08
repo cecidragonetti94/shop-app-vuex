@@ -3,7 +3,7 @@
     <h4 class="text-center" color="accent">Carrito de compras</h4>
     <v-simple-table>
       <thead>
-        <tr>
+        <tr >
           <th scope="col" class="text-center">#id</th>
           <th scope="col" class="text-center">Producto</th>
           <th scope="col" class="text-center">Cantidad</th>

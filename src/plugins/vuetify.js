@@ -13,10 +13,12 @@ export default new Vuetify({
         primary: '#FF1BA9', //fuccia
         secondary: '#FEC6D1',//rosa
         accent: '#DACACD',//gris
-        error: '#A2DEF9',//celeste
+        error: '#F49A8E',//rojo
         info: '#E0A2F9',//violeta
         success: '#B8F3B2', //verde manzana
-        warning: '#FFF469'//amarillo
+        warning: '#FFF469',//amarillo
+        celes: '#A4DCF6' //celeste
+
       },
     },
   },

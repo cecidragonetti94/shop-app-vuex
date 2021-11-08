@@ -28,6 +28,12 @@ const routes = [
   
   component: () => import('../views/Favoritos.vue')
    },
+   {
+    path: '/userRegister',
+    name: 'UserRegister',
+  
+  component: () => import('../views/UserRegister.vue')
+   },
 ]
 
 const router = new VueRouter({
