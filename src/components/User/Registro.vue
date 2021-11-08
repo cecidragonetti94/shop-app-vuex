@@ -6,34 +6,18 @@
     <form @submit.prevent="submit">
       <validation-provider
         v-slot="{ errors }"
-        name="Name"
+        name="nombre"
         rules="required|max:10"
       >
         <v-text-field
-          v-model="name"
+          v-model="nombre"
           :counter="10"
           :error-messages="errors"
-          label="Name"
+          label="Nombre"
           required
         ></v-text-field>
       </validation-provider>
-      <validation-provider
-        v-slot="{ errors }"
-        name="phoneNumber"
-        :rules="{
-          required: true,
-          digits: 7,
-          regex: '^(71|72|74|76|81|82|84|85|86|87|88|89)\\d{5}$'
-        }"
-      >
-        <v-text-field
-          v-model="phoneNumber"
-          :counter="7"
-          :error-messages="errors"
-          label="Phone Number"
-          required
-        ></v-text-field>
-      </validation-provider>
+      
       <validation-provider
         v-slot="{ errors }"
         name="email"
@@ -48,41 +32,41 @@
       </validation-provider>
       <validation-provider
         v-slot="{ errors }"
-        name="select"
-        rules="required"
+        name="contraseña"
+        rules="required|max:10"
       >
-        <v-select
-          v-model="select"
-          :items="items"
+        <v-text-field
+          v-model="contraseña"
+          :counter="10"
           :error-messages="errors"
-          label="Select"
-          data-vv-name="select"
+          label="Contraseña"
           required
-        ></v-select>
+        ></v-text-field>
       </validation-provider>
-      <validation-provider
+        <validation-provider
         v-slot="{ errors }"
-        rules="required"
-        name="checkbox"
+        name="contraseña"
+        rules="required|max:10"
       >
-        <v-checkbox
-          v-model="checkbox"
+        <v-text-field
+          v-model="contraseña"
+          :counter="10"
           :error-messages="errors"
-          value="1"
-          label="Option"
-          type="checkbox"
+          label="Repetir Contraseña"
           required
-        ></v-checkbox>
+        ></v-text-field>
       </validation-provider>
+      
 
       <v-btn
         class="mr-4"
         type="submit"
         :disabled="invalid"
+        color="success"
       >
         submit
       </v-btn>
-      <v-btn @click="clear">
+      <v-btn @click="clear" color="celes">
         clear
       </v-btn>
     </form>
@@ -96,17 +80,17 @@
 
   extend('digits', {
     ...digits,
-    message: '{_field_} needs to be {length} digits. ({_value_})',
+    message: '{_field_} debe tener {length} digitos. ({_value_})',
   })
 
   extend('required', {
     ...required,
-    message: '{_field_} can not be empty',
+    message: '{_field_} no puede estar vacio',
   })
 
   extend('max', {
     ...max,
-    message: '{_field_} may not be greater than {length} characters',
+    message: 'El {_field_} no puede tener mas de {length} caracteres',
   })
 
   extend('regex', {
@@ -116,7 +100,7 @@
 
   extend('email', {
     ...email,
-    message: 'Email must be valid',
+    message: 'El e-mail debe ser valido',
   })
 
   export default {
@@ -125,17 +109,9 @@
       ValidationObserver,
     },
     data: () => ({
-      name: '',
-      phoneNumber: '',
+      nombre: '',
       email: '',
-      select: null,
-      items: [
-        'Item 1',
-        'Item 2',
-        'Item 3',
-        'Item 4',
-      ],
-      checkbox: null,
+     
     }),
 
     methods: {
@@ -143,11 +119,10 @@
         this.$refs.observer.validate()
       },
       clear () {
-        this.name = ''
-        this.phoneNumber = ''
+        this.nombre = ''
+   
         this.email = ''
-        this.select = null
-        this.checkbox = null
+
         this.$refs.observer.reset()
       },
     },
