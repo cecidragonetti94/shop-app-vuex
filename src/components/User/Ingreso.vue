@@ -20,7 +20,7 @@
      
       <validation-provider
         name="contraseña"
-        rules="required|password"
+        rules="required"
         v-slot="{ errors }"
       >
        <v-text-field
@@ -81,7 +81,11 @@
     ...email,
     message: 'El e-mail debe ser valido',
   })
-
+// extend('password', {
+//   message: 'Contraseña incorrecta'
+//   },
+ 
+// );
 
   export default {
     components: {

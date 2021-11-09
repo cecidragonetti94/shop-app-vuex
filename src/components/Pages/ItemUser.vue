@@ -21,7 +21,7 @@
             <v-list-item-title >Registrarse</v-list-item-title>
           </v-list-item-content>
           </v-list-item>
-           <v-list-item>
+           <v-list-item to="/">
            <v-list-item-icon>
             <v-icon>fa-sign-out-alt</v-icon>
           </v-list-item-icon>
