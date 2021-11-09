@@ -5,7 +5,7 @@
         v-model="selectedItem"
         color="primary"
       >
-        <v-list-item>
+        <v-list-item to="ingresoUsuario">
           <v-list-item-icon>
             <v-icon>fa-sign-in-alt</v-icon>
           </v-list-item-icon>

@@ -1,26 +1,11 @@
-<template>
-  <validation-observer 
+.<template>
+   <validation-observer 
     ref="observer"
     v-slot="{ invalid }"
   >
-    <form @submit="submit" class="form" >
-     <v-container class="mt-6">
-
-      <validation-provider
-        v-slot="{ errors }"
-        name="nombre"
-        rules="required|max:10"
-      >
-        <v-text-field
-          v-model="nombre"
-          :counter="10"
-          :error-messages="errors"
-          label="Nombre"
-          required
-        ></v-text-field>
-      </validation-provider>
-      
-      <validation-provider
+   <form @submit="submit" class="form" >
+        <v-container class="mt-6">
+        <validation-provider
         v-slot="{ errors }"
         name="email"
         rules="required|email"
@@ -32,38 +17,23 @@
           required
         ></v-text-field>
       </validation-provider>
-      <validationObserver>
+     
       <validation-provider
-        v-slot="{ errors }"
         name="contraseña"
-        rules="required|password:@confirm"
-        
+        rules="required|password"
+        v-slot="{ errors }"
       >
-        <v-text-field
+       <v-text-field
           v-model="contraseña"
           :error-messages="errors"
           label="Contraseña"
           required
-           type="password"
+         type="password"
            
         ></v-text-field>
-      </validation-provider>
-        <validation-provider
-        v-slot="{ errors }"
-        name="confirm"
-        rules="required"
-      >
-        <v-text-field
-          v-model="confirmation"
-          :error-messages="errors"
-          label="Repetir Contraseña"
-          required
-          type="password"
-        ></v-text-field>
-      </validation-provider>
-     
-      </validationObserver>
-    <v-container class="container">
+       </validation-provider>
+      
+    <v-container class="d-flex justify-center ">
   
       <v-btn
         class="mr-4"
@@ -78,12 +48,11 @@
       </v-btn>
           
     </v-container>
-     </v-container>
+        </v-container>
     </form>
   </validation-observer>
 </template>
-<script>
-  import { required, digits, email, max, regex } from 'vee-validate/dist/rules'
+<script>import { required, digits, email, max, regex } from 'vee-validate/dist/rules'
   import { extend, ValidationObserver, ValidationProvider, setInteractionMode } from 'vee-validate'
 
   setInteractionMode('eager')
@@ -112,13 +81,6 @@
     ...email,
     message: 'El e-mail debe ser valido',
   })
-extend('password', {
-  params: ['target'],
-  validate(value, { target }) {
-    return value === target;
-  },
-  message: 'Las contraseñas no coinciden'
-});
 
 
   export default {
@@ -127,10 +89,9 @@ extend('password', {
       ValidationObserver,
     },
     data: () => ({
-      nombre: '',
       email: '',
       contraseña: '',
-     confirmation: ''
+  
     }),
 
     methods: {
@@ -138,14 +99,13 @@ extend('password', {
         this.$refs.observer.validate()
       },
       clear () {
-        this.nombre = ''
-   
         this.email = ''
         this.contraseña = ''
-        this.confirmation = ''
+       
 
         this.$refs.observer.reset()
       },
     },
   }
 </script>
+
