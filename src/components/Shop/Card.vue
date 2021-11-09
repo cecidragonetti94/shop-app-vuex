@@ -58,17 +58,19 @@ export default {
   data() {
     return {
       dialog: false,
-      loading: false
-     
+      loading: false,
+    
     };
   },
-   
+ created() {
+   this.loading = true 
+ },
   computed: {
     ...mapState(["products"]),
     ...mapState(["carrito"]),
   },
   mounted() {
-    this.loading = true
+    
     this.$store.dispatch("getProducts").then(()=>{
     this.loading = false
     });
