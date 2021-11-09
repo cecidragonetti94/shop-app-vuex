@@ -1,9 +1,9 @@
 <template>
-  <validation-observer
+  <validation-observer 
     ref="observer"
     v-slot="{ invalid }"
   >
-    <form @submit.prevent="submit">
+    <form @submit="submit" class="form" >
       <validation-provider
         v-slot="{ errors }"
         name="nombre"
@@ -30,45 +30,51 @@
           required
         ></v-text-field>
       </validation-provider>
+      <validationObserver>
       <validation-provider
         v-slot="{ errors }"
         name="contraseña"
-        rules="required|max:10"
+        rules="required|password:@confirm"
+        
       >
         <v-text-field
           v-model="contraseña"
-          :counter="10"
           :error-messages="errors"
           label="Contraseña"
           required
+           type="password"
+           
         ></v-text-field>
       </validation-provider>
         <validation-provider
         v-slot="{ errors }"
-        name="contraseña"
-        rules="required|max:10"
+        name="confirm"
+        rules="required"
       >
         <v-text-field
-          v-model="contraseña"
-          :counter="10"
+          v-model="confirmation"
           :error-messages="errors"
           label="Repetir Contraseña"
           required
+          type="password"
         ></v-text-field>
       </validation-provider>
-      
-
+      </validationObserver>
+    <v-container class="container">
+  
       <v-btn
         class="mr-4"
         type="submit"
         :disabled="invalid"
-        color="success"
+        color="info"
       >
         submit
       </v-btn>
       <v-btn @click="clear" color="celes">
         clear
       </v-btn>
+          
+    </v-container>
     </form>
   </validation-observer>
 </template>
@@ -95,13 +101,21 @@
 
   extend('regex', {
     ...regex,
-    message: '{_field_} {_value_} does not match {regex}',
+    message: '{_field_} {_value_} no coincide {regex}',
   })
 
   extend('email', {
     ...email,
     message: 'El e-mail debe ser valido',
   })
+extend('password', {
+  params: ['target'],
+  validate(value, { target }) {
+    return value === target;
+  },
+  message: 'Las contraseñas no coinciden'
+});
+
 
   export default {
     components: {
@@ -111,7 +125,8 @@
     data: () => ({
       nombre: '',
       email: '',
-     
+      contraseña: '',
+     confirmation: ''
     }),
 
     methods: {
@@ -122,9 +137,33 @@
         this.nombre = ''
    
         this.email = ''
+        this.contraseña = ''
+        this.confirmation = ''
 
         this.$refs.observer.reset()
       },
     },
   }
 </script>
+<style scoped>
+.form{
+  background-color: rgb(193, 248, 168);
+  max-width: 500px;
+  min-height: 400px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 300px;
+  margin-top:100px;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+</style>

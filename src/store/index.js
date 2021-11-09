@@ -28,17 +28,7 @@ export default new Vuex.Store({
       state.carrito = {}
     
     },
-    aumentar(state,payload){
-      state.carrito[payload].cantidad = state.carrito[payload].cantidad + 1
-      // console.log("aumentar", state.carrito[payload].cantidad)
-    },
-    disminuir(state,payload){
-      state.carrito[payload].cantidad = state.carrito[payload].cantidad -1
-      if(state.carrito[payload].cantidad ===0){
-        delete state.carrito[payload]
-      }
-      // console.log("disminuir", state.carrito[payload].cantidad)
-    },
+  
     setFavoritos(state,payload){
       state.favoritos = payload
     }
