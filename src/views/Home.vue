@@ -34,7 +34,7 @@
         </v-btn>
       </v-card-actions>
     </v-card>
-    <v-img contain height="500px" src="https://newsd.in/wp-content/uploads/2018/11/online-shopping.jpg"></v-img>
+    <v-img contain height="400px" src="https://newsd.in/wp-content/uploads/2018/11/online-shopping.jpg"></v-img>
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-app-bar color="secondary" dense dark>
+    <v-app-bar color="secondary" dark>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
       <v-toolbar-title>Shopping App
